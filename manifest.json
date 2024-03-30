@@ -2,12 +2,19 @@
   "manifest_version": 3,
   "name": "XHR Inspector",
   "version": "1.0",
-  "permissions": ["webRequest", "webRequestBlocking", "tabs", "<all_urls>"],
+  "permissions": [
+    "webRequest",
+    "tabs",
+    "storage" // Ensure you have the storage permission if you're using chrome.storage
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "hello.html",
     "default_icon": "hello_extensions.png"
   }
 }

@@ -1,26 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>XHR Inspector</title>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      chrome.storage.local.get(['xhrDetails'], function(result) {
-        if (result.xhrDetails && result.xhrDetails.length) {
-          const list = document.createElement('ul');
-          result.xhrDetails.forEach(detail => {
-            const item = document.createElement('li');
-            item.textContent = `${detail.type}: ${detail.url} ${detail.method || ''} ${detail.statusCode || ''}`;
-            list.appendChild(item);
-          });
-          document.body.appendChild(list);
-        } else {
-          document.body.textContent = 'No XHR details captured.';
-        }
-      });
-    });
-  </script>
+    <title>XHR Inspector</title>
 </head>
 <body>
-  <h1>XHR Activity</h1>
+    <h1>XHR Activity</h1>
+    <ul id="xhrDetails"></ul>
+    <script src="popup.js"></script> <!-- Reference to the external JS file -->
 </body>
 </html>

@@ -1,40 +1,51 @@
-// Initialize an array to hold the details of XHR requests and responses
-let xhrDetails = [];
-
-// Function to save the XHR details to chrome.storage
-function saveXHRDetails() {
-  chrome.storage.local.set({xhrDetails: xhrDetails}, function() {
+// Function to save the XHR details to chrome.storage.local
+const saveXHRDetails = (xhrDetails) => {
+  chrome.storage.local.set({xhrDetails}, () => {
     console.log('XHR details saved');
   });
-}
+};
 
-// Listen for XHR requests
-chrome.webRequest.onBeforeRequest.addListener(
-  function(details) {
-    if (details.type === "xmlhttprequest") {
-      xhrDetails.push({url: details.url, method: details.method, type: 'Request'});
-      saveXHRDetails();
-    }
-  },
-  {urls: ["<all_urls>"]},
-  ["requestBody"]
-);
+chrome.storage.local.get({xhrDetails: []}, (result) => {
+  let xhrDetails = result.xhrDetails;
 
-// Listen for XHR responses
-chrome.webRequest.onCompleted.addListener(
-  function(details) {
-    if (details.type === "xmlhttprequest") {
-      xhrDetails.push({url: details.url, statusCode: details.statusCode, type: 'Response'});
-      saveXHRDetails();
-    }
-  },
-  {urls: ["<all_urls>"]}
-);
+  // Listen for XHR requests
+  chrome.webRequest.onBeforeRequest.addListener(
+    (details) => {
+      if (details.type === "xmlhttprequest") {
+        xhrDetails.push({
+          url: details.url,
+          method: details.method,
+          type: 'Request',
+          timeStamp: details.timeStamp
+        });
+        // Keep the latest 100 entries
+        if (xhrDetails.length > 100) {
+          xhrDetails = xhrDetails.slice(-100);
+        }
+        saveXHRDetails(xhrDetails);
+      }
+    },
+    {urls: ["<all_urls>"]},
+    ["requestBody"]
+  );
 
-// Limit the size of xhrDetails to avoid exceeding storage limits
-chrome.webRequest.onCompleted.addListener(() => {
-  if (xhrDetails.length > 100) { // Keep the latest 100 entries
-    xhrDetails = xhrDetails.slice(-100);
-    saveXHRDetails();
-  }
-}, {urls: ["<all_urls>"]});
+  // Listen for XHR responses
+  chrome.webRequest.onCompleted.addListener(
+    (details) => {
+      if (details.type === "xmlhttprequest") {
+        xhrDetails.push({
+          url: details.url,
+          statusCode: details.statusCode,
+          type: 'Response',
+          timeStamp: details.timeStamp
+        });
+        // Keep the latest 100 entries
+        if (xhrDetails.length > 100) {
+          xhrDetails = xhrDetails.slice(-100);
+        }
+        saveXHRDetails(xhrDetails);
+      }
+    },
+    {urls: ["<all_urls>"]}
+  );
+});
