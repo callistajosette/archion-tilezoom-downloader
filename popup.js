@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
-  
+
+/**
+ * Toggle allow recording or not so we don't bother capturing smaller than full size images
+ */
   document.addEventListener('DOMContentLoaded', function() {
     const toggle = document.getElementById('recordToggle');
     

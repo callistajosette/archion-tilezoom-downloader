@@ -1,3 +1,6 @@
+/**
+ * Fetch and parse archion.de XHR response bodies to tile image urls
+ */
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.type === 'XHR_INTERCEPTED') {
         chrome.storage.local.get(['isRecording', 'xhrData'], function(result) {
@@ -25,6 +28,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 });
 
+/**
+ * Do not clutter storage overtime-- clear saved XHR response bodies on reload/switch tab/etc.
+ */
 // Listen for tab updates 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     // Check if the tab is reloaded and the page is fully loaded
@@ -35,3 +41,4 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
       });
     }
   });
+  

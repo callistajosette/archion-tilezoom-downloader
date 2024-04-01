@@ -1,3 +1,6 @@
+/**
+ * XHR response interceptor; sends data back to content.js and from there to background.js
+ */
 (function() {
     const oldOpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function(method, url) {
