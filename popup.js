@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Try draw original image from components
+ * Try draw original image from components; minor issue 4/1/2024 missing strips of data near 
+ * top-right and bottom-left but good enough
  */
 document.addEventListener('DOMContentLoaded', async function() {
     const listElement = document.getElementById('xhr-list');
@@ -111,3 +112,26 @@ function loadImage(url) {
         img.src = url;
     });
 }
+
+/**
+ * Try allow download of canvassed/reconstructed image
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    // Other existing code for canvas setup and image loading
+
+    // Add click event listener for the download button
+    const downloadBtn = document.getElementById('downloadBtn');
+    downloadBtn.addEventListener('click', function() {
+        const canvas = document.querySelector('canvas');
+        if (canvas) {
+            // Create a data URL for the canvas
+            const imageUrl = canvas.toDataURL('image/png');
+
+            // Create a temporary link to trigger the download
+            const link = document.createElement('a');
+            link.download = 'constructed-image.png';
+            link.href = imageUrl;
+            link.click(); // Trigger the download
+        }
+    });
+});
