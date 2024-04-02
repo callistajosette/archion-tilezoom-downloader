@@ -8,7 +8,7 @@ I haven't bothered packing it for the chrome webstore yet so here are some basic
 3) Go to the page with the document you want to download, and zoom in to just before/after the zoom level you want to download.
 4) Click on the extension and toggle 'record'
 5) Click the zoom button to zoom in the desired res.. Click the extension again and check 'View Canvas Image'. !Important! Wait until the image that you want to download is entirely finished loading in this box before clicking Download Image.
-6)Click download image. If downloading the full resolution size, it make take up to a minute to download.
+6)Click download image. If downloading the full resolution size, it make take up a bit before it is ready to download.
 
 **If anything gets messed up or starts acting funky, reloading the page resets the extensions internal storage. Otherwise, report an issue I guess.
 
