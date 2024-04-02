@@ -12,7 +12,16 @@
     </label> Recording
 
     <button id="downloadBtn">Download Image</button> <!-- Download button -->
-    <div id="xhr-list"></div>
+
+    <details id="imageDropdown">
+      <summary>View Canvas Image</summary>
+      <!-- The canvas will be dynamically inserted here in popup.js -->
+  </details>
+  
+  <details id="xhrDropdown">
+      <summary>View XHR Data</summary>
+      <div id="xhr-list"></div>
+  </details>
     
     <script src="popup.js"></script>
 </body>

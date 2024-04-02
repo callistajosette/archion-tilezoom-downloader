@@ -1,3 +1,6 @@
+/*
+ * recorder toggle styling
+ */
 .switch {
     position: relative;
     display: inline-block;
@@ -57,30 +60,31 @@
   .slider.round:before {
     border-radius: 50%;
   }
+  
+/*
+ * drop-downs styling
+ */
+  details {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
 
-
-  /* Style the accordion and panel */
-.accordion {
-    background-color: #eee;
-    color: #444;
+summary {
     cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
     outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-  }
-  
-  .active, .accordion:hover {
-    background-color: #ccc;
-  }
-  
-  .panel {
-    padding: 0 18px;
-    background-color: white;
+}
+
+summary::-webkit-details-marker {
     display: none;
-    overflow: hidden;
-  }
-  
+}
+
+/*
+ * pop-up body styling
+ */
+body {
+  min-width: 400px; /* Set the minimum width */
+  min-height: 300px; /* Set the minimum height */
+  padding: 10px; /* Optional: Add some padding for better looks */
+}

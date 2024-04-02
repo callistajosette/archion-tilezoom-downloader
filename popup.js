@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * top-right and bottom-left but good enough
  */
 document.addEventListener('DOMContentLoaded', async function() {
-    const listElement = document.getElementById('xhr-list');
+    const listElement = document.getElementById('imageDropdown');
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     listElement.appendChild(canvas);
