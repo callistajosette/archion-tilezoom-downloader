@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 document.addEventListener('DOMContentLoaded', async function() {
     const listElement = document.getElementById('imageDropdown');
+    const loadingBar = document.getElementById('loadingProgress');
+    const downloadBtn = document.getElementById('downloadBtn');
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     listElement.appendChild(canvas);
@@ -61,6 +63,15 @@ document.addEventListener('DOMContentLoaded', async function() {
                 });
             }
         });
+
+        let loadedTiles = 0;
+        const updateLoadingBar = () => {
+            const progress = (loadedTiles / allTiles.length) * 100;
+            loadingBar.style.width = `${progress}%`;
+            if (loadedTiles === allTiles.length) {
+                downloadBtn.disabled = false; // Enable download button when all tiles are loaded
+            }
+        };
 
         // Sort tiles by their coordinates
         allTiles.sort((a, b) => {
@@ -98,6 +109,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                     // For non-edge tiles, use the default size
                     ctx.drawImage(img, x * tileSize, y * tileSize, tileSize, tileSize);
                 }
+                loadedTiles++;
+                updateLoadingBar(); // Update loading progress after each tile is loaded
             }
         }
     });
