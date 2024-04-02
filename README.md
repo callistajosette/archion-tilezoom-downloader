@@ -1,3 +1,5 @@
+This extension is only designed for downloading images from archion.de. You can download any resolution provided by the site, if you have access as a paid member. I developed this extension because I strongly believe they should not be able to charge you, and limit access to downloading what are essentially screenshots.
+
 It's currently functional but not very pretty
 
 I haven't bothered packing it for the chrome webstore yet so here are some basic steps you will need to do to use it currently:
