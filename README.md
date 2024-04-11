@@ -1,4 +1,4 @@
-This extension is only designed for downloading images from archion.de. You can download any resolution provided by the site, if you have access as a paid member. I developed this extension because I strongly believe they should not be able to charge you, and limit access to downloading what are essentially screenshots.
+This is a helper extension designed for downloading full-size images from archion.de. You can download any resolution provided by the site, if you have access as a paid member.
 
 It's currently functional but not very pretty
 
