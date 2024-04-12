@@ -4,7 +4,7 @@ It's currently functional but not very pretty
 
 I haven't bothered packing it for the chrome webstore yet so here are some basic steps you will need to do to use it currently:
 1) Load the extension with chrome' developer mode; some instructions how to do this here, or google it yourself: https://bashvlas.com/blog/install-chrome-extension-in-developer-mode
-2) Pin the extension, right now its using a dummy icon that says 'Hi'
+2) Pin the extension, right now has no icon
 3) Go to the page with the document you want to download, and zoom in to just before/after the zoom level you want to download.
 4) Click on the extension and toggle 'record'
 5) Click the zoom button to zoom in the desired res.. Click the extension again and check 'View Canvas Image'. !Important! Wait until the image that you want to download is entirely finished loading in this box before clicking Download Image.
