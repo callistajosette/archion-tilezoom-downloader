@@ -27,8 +27,7 @@
         }
     ],
     "action": {
-      "default_popup": "popup.html",
-      "default_icon": "hello_extensions.png"
+      "default_popup": "popup.html"
     }
   }
   

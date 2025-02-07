@@ -88,3 +88,37 @@ body {
   min-height: 300px; /* Set the minimum height */
   padding: 10px; /* Optional: Add some padding for better looks */
 }
+
+/*
+ * grid ui styling
+ */
+
+ #tileGrid {
+  display: grid;
+  margin: 10px auto;
+  padding: 0;
+  width: fit-content;
+}
+
+.tile-placeholder {
+  width: 10px;
+  height: 10px;
+  background: #b0c4de; /* Darkened Archion blue before loading */
+  border-radius: 2px;
+  transition: background 0.2s ease-in-out;
+}
+
+.tile-loaded {
+  background: #054678; /* Archion blue */
+  animation: shimmer 0.6s ease-in-out forwards;
+}
+
+/* Smooth shimmer effect when loaded */
+@keyframes shimmer {
+  0% { background: #b0c4de; }
+  50% { background: #0668a0; } /* Brighter mid-transition */
+  100% { background: #054678; }
+}
+
+
+
